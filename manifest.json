@@ -1,7 +1,7 @@
 {
   "id": "./",
   "name": "Catatan Keuangan Simple",
-  "short_name": "Catatan Uang",
+  "short_name": "Catatan Keuangan",
   "description": "Aplikasi pencatatan pemasukan, pengeluaran, dan saldo pribadi.",
   "lang": "id",
   "start_url": "./",
