@@ -123,18 +123,36 @@ function render() {
   const history = $("history");
   history.replaceChildren();
 
-  if (data.transactions.length === 0) {
-    const kosong = document.createElement("div");
-    kosong.className = "empty";
-    kosong.textContent =
-      "Belum ada transaksi. Silakan catat pemasukan atau pengeluaran.";
-    history.appendChild(kosong);
-    return;
-  }
 
-  const terbaru = [...data.transactions].sort((a, b) =>
+const filterType = $("filterType").value;
+const filterStart = $("filterStart").value;
+const filterEnd = $("filterEnd").value;
+
+const terbaru = [...data.transactions]
+  .filter((t) => {
+    const cocokJenis =
+      filterType === "all" || t.type === filterType;
+
+    const cocokTanggalAwal =
+      !filterStart || t.date >= filterStart;
+
+    const cocokTanggalAkhir =
+      !filterEnd || t.date <= filterEnd;
+
+    return cocokJenis && cocokTanggalAwal && cocokTanggalAkhir;
+  })
+  .sort((a, b) =>
     b.date.localeCompare(a.date) || b.id.localeCompare(a.id)
   );
+
+if (terbaru.length === 0) {
+  const kosong = document.createElement("div");
+  kosong.className = "empty";
+  kosong.textContent = "Tidak ada transaksi yang cocok dengan filter.";
+  history.appendChild(kosong);
+  return;
+}
+
 
   terbaru.forEach((t) => {
     const item = document.createElement("div");
@@ -163,6 +181,17 @@ function render() {
 }
 
 $("date").value = tanggalHariIni();
+
+["filterType", "filterStart", "filterEnd"].forEach((id) => {
+  $(id).addEventListener("change", render);
+});
+
+$("resetFilter").addEventListener("click", () => {
+  $("filterType").value = "all";
+  $("filterStart").value = "";
+  $("filterEnd").value = "";
+  render();
+});
 
 $("saveOpening").addEventListener("click", () => {
   const nilai = $("openingBalance").value.trim();

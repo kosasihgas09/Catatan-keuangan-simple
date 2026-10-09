@@ -75,7 +75,27 @@
           type="button">Hapus Semua</button>
       </div>
       <p class="muted">Transaksi terbaru tampil paling atas.</p>
-      <div id="history"></div>
+<div class="filter-box">
+  <label for="filterType">Jenis transaksi</label>
+  <select id="filterType">
+    <option value="all">Semua transaksi</option>
+    <option value="income">Pemasukan saja</option>
+    <option value="expense">Pengeluaran saja</option>
+  </select>
+
+  <label for="filterStart">Dari tanggal</label>
+  <input id="filterStart" type="date">
+
+  <label for="filterEnd">Sampai tanggal</label>
+  <input id="filterEnd" type="date">
+
+  <button id="resetFilter" type="button">
+    Reset Filter
+  </button>
+</div>
+
+
+<div id="history"></div>
     </section>
    
     
