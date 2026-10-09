@@ -1,0 +1,315 @@
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Arial, sans-serif;
+  color: #172033;
+  background: #f4f7fb;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  padding: 20px 16px 32px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.logo {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: #dbeafe;
+  font-size: 27px;
+}
+
+h1 {
+  margin: 0 0 5px;
+  font-size: 22px;
+}
+
+h2 {
+  margin: 0 0 16px;
+  font-size: 18px;
+}
+
+p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.header p,
+.muted {
+  color: #64748b;
+  font-size: 13px;
+}
+
+.balance-card {
+  padding: 22px;
+  border-radius: 20px;
+  color: white;
+  background: linear-gradient(135deg, #166534, #16a34a);
+  box-shadow: 0 8px 22px #16653422;
+}
+
+.balance-card > p {
+  font-size: 14px;
+  opacity: .9;
+}
+
+.balance-card h2 {
+  margin: 8px 0 24px;
+  font-size: clamp(27px, 7vw, 36px);
+  overflow-wrap: anywhere;
+}
+
+.balance-settings {
+  padding-top: 15px;
+  border-top: 1px solid #ffffff55;
+}
+
+.balance-settings label {
+  color: white;
+  font-size: 13px;
+}
+
+.inline-form {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.inline-form input {
+  min-width: 0;
+  flex: 1;
+}
+
+.inline-form button {
+  width: auto;
+  color: #166534;
+  background: white;
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.summary-card {
+  min-width: 0;
+  padding: 16px 12px;
+  border: 1px solid #e5eaf1;
+  border-radius: 15px;
+  background: white;
+}
+
+.summary-card span,
+.summary-card strong {
+  display: block;
+}
+
+.summary-card span {
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+.summary-card strong {
+  overflow-wrap: anywhere;
+  font-size: clamp(15px, 4vw, 20px);
+}
+
+.income span {
+  color: #15803d;
+}
+
+.expense span {
+  color: #dc2626;
+}
+
+.panel {
+  margin-top: 16px;
+  padding: 20px 16px;
+  border: 1px solid #e5eaf1;
+  border-radius: 18px;
+  background: white;
+  box-shadow: 0 3px 12px #17203308;
+}
+
+label {
+  display: block;
+  margin: 14px 0 7px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+input,
+select {
+  display: block;
+  width: 100%;
+  min-height: 46px;
+  padding: 11px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  background: white;
+  color: #172033;
+  font: inherit;
+  font-size: 16px;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid #86efac;
+  border-color: #16a34a;
+}
+
+button {
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 10px;
+  background: #e2e8f0;
+  color: #172033;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.primary {
+  width: 100%;
+  margin-top: 20px;
+  min-height: 49px;
+  background: #15803d;
+  color: white;
+  font-size: 16px;
+}
+
+button:active {
+  opacity: .8;
+}
+
+.history-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.history-heading h2 {
+  margin: 0;
+}
+
+.danger-outline {
+  border: 1px solid #fecaca;
+  background: white;
+  color: #dc2626;
+  font-size: 12px;
+  padding: 8px;
+}
+
+.muted {
+  margin-top: 9px;
+}
+
+.transaction {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 15px 0;
+  border-bottom: 1px solid #edf0f5;
+}
+
+.transaction:last-child {
+  border-bottom: 0;
+}
+
+.transaction-info {
+  min-width: 0;
+}
+
+.transaction-info strong {
+  display: block;
+  overflow-wrap: anywhere;
+  font-size: 14px;
+}
+
+.transaction-info small {
+  display: block;
+  margin-top: 5px;
+  color: #64748b;
+  font-size: 12px;
+}
+
+.transaction-right {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.transaction-amount {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.amount-in {
+  color: #15803d;
+}
+
+.amount-out {
+  color: #dc2626;
+}
+
+.delete-one {
+  margin-top: 8px;
+  min-height: 32px;
+  padding: 6px 9px;
+  background: #fff1f2;
+  color: #be123c;
+  font-size: 12px;
+}
+
+.empty {
+  padding: 24px 8px;
+  color: #64748b;
+  text-align: center;
+  font-size: 14px;
+}
+
+footer {
+  padding: 24px 5px 0;
+  color: #64748b;
+  text-align: center;
+  font-size: 12px;
+}
+
+@media (max-width: 360px) {
+  .container {
+    padding: 14px 10px 25px;
+  }
+
+  .panel {
+    padding: 16px 12px;
+  }
+
+  .summary {
+    gap: 8px;
+  }
+}

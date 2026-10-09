@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f7fb">
+  <title>Catatan Keuangan Simple</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <div class="logo">💰</div>
+      <div>
+        <h1>Catatan Keuangan</h1>
+        <p>Catat uang masuk dan keluar dengan mudah.</p>
+      </div>
+    </header>
+
+    <section class="balance-card">
+      <p>Saldo Saat Ini</p>
+      <h2 id="balance">Rp0</h2>
+      <div class="balance-settings">
+        <label for="openingBalance">Saldo awal (Rp)</label>
+        <div class="inline-form">
+          <input id="openingBalance" type="number"
+            min="0" step="1" placeholder="Contoh: 1000000">
+          <button id="saveOpening" type="button">Simpan</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="summary">
+      <div class="summary-card income">
+        <span>↗ Pemasukan</span>
+        <strong id="incomeTotal">Rp0</strong>
+      </div>
+      <div class="summary-card expense">
+        <span>↘ Pengeluaran</span>
+        <strong id="expenseTotal">Rp0</strong>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Tambah Transaksi</h2>
+      <form id="transactionForm">
+        <label for="type">Jenis transaksi</label>
+        <select id="type" required>
+          <option value="income">Pemasukan (+)</option>
+          <option value="expense">Pengeluaran (−)</option>
+        </select>
+
+        <label for="amount">Jumlah uang (Rp)</label>
+        <input id="amount" type="number" min="1"
+          step="1" placeholder="Contoh: 50000" required>
+
+        <label for="note">Keterangan</label>
+        <input id="note" type="text" maxlength="100"
+          placeholder="Contoh: Belanja kebutuhan" required>
+
+        <label for="date">Tanggal</label>
+        <input id="date" type="date" required>
+
+        <button class="primary" type="submit">
+          Simpan Transaksi
+        </button>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="history-heading">
+        <h2>Riwayat Transaksi</h2>
+        <button id="clearHistory" class="danger-outline"
+          type="button">Hapus Semua</button>
+      </div>
+      <p class="muted">Transaksi terbaru tampil paling atas.</p>
+      <div id="history"></div>
+    </section>
+   
+    
+<section class="panel">
+  <h2>Backup & Pulihkan Data</h2>
+  <p class="muted">
+    Simpan salinan catatan keuangan atau pulihkan
+    data dari file cadangan.
+  </p>
+  
+<button id="exportCSV" class="primary" type="button">
+  📊 Ekspor ke Excel (CSV)
+</button>
+
+  <button id="backupButton" class="primary" type="button">
+    📥 Backup Data
+  </button>
+
+  <label for="restoreFile">Pilih file cadangan (.json)</label>
+  <input id="restoreFile" type="file" accept=".json,application/json">
+
+  <button id="restoreButton" class="primary" type="button">
+    📤 Pulihkan Data
+  </button>
+
+  <p class="muted">
+    Pemulihan akan mengganti saldo awal dan riwayat
+    transaksi saat ini dengan data dari file cadangan.
+  </p>
+</section>
+
+    <footer>Catatan pribadi • Data tersimpan di browser HP ini</footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
