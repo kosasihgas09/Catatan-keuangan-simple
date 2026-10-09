@@ -7,6 +7,9 @@
   <meta name="theme-color" content="#f4f7fb">
   <title>Catatan Keuangan Simple</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.svg">
 </head>
 <body>
   <main class="container">
@@ -131,5 +134,15 @@
   </main>
 
   <script src="script.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./sw.js")
+          .catch((error) => {
+            console.error("Service worker gagal didaftarkan:", error);
+          });
+      });
+    }
+  </script>
 </body>
 </html>
