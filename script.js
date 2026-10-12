@@ -4,11 +4,9 @@ const STORAGE_KEY = "catatanKeuanganSimple_v1";
 const $ = (id) => document.getElementById(id);
 
 const rupiah = (nilai) =>
-  new Intl.NumberFormat("id-ID", {
-    style: "currency",
-    currency: "IDR",
-    maximumFractionDigits: 0
-  }).format(nilai);
+"Rp" + Math.round(Number(nilai) || 0).toLocaleString("id-ID");
+
+
 
 function tanggalHariIni() {
   const sekarang = new Date();
