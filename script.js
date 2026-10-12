@@ -2,6 +2,18 @@
 const STORAGE_KEY = "catatanKeuanganSimple_v1";
 
 const $ = (id) => document.getElementById(id);
+function formatInputRupiah(input) {
+  input.addEventListener("input", () => {
+    const angka = input.value.replace(/\D/g, "");
+    input.value = angka
+      ? Number(angka).toLocaleString("id-ID")
+      : "";
+  });
+}
+
+formatInputRupiah($("openingBalance"));
+formatInputRupiah($("amount"));
+
 
 const rupiah = (nilai) =>
 "Rp" + Math.round(Number(nilai) || 0).toLocaleString("id-ID");
@@ -192,7 +204,7 @@ $("resetFilter").addEventListener("click", () => {
 });
 
 $("saveOpening").addEventListener("click", () => {
-  const nilai = $("openingBalance").value.trim();
+const nilai = $("openingBalance").value.replace(/\./g, "").trim();
 
   if (nilai === "" || !/^\d+$/.test(nilai)) {
     alert("Masukkan saldo awal berupa angka bulat tanpa tanda titik atau koma.");
@@ -223,7 +235,7 @@ $("transactionForm").addEventListener("submit", (event) => {
   event.preventDefault();
 
   const type = $("type").value;
-  const nilai = $("amount").value.trim();
+  const nilai = $("amount").value.replace(/\./g, "").trim();
   const note = $("note").value.trim();
   const date = $("date").value;
 
